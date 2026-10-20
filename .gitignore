@@ -42,3 +42,8 @@ breakdown.md
 
 # Antigravity IDE agent config
 .agents/
+
+# Milestone reports and detailed build documentation (local developer logs)
+docs/milestones/
+milestone_reports/
+milestones/

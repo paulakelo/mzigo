@@ -1,0 +1,44 @@
+# Virtual environments and dependencies
+.venv/
+venv/
+env/
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Testing and linting
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local Delta Lake storage, database files, and checkpoints
+data/
+delta/
+*.duckdb*
+checkpoints/
+
+# PostgreSQL data volume if mounted locally
+postgres_data/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Developer checklists & private progress notes (following dukastack and rekon convention)
+CHECKLIST.md
+checklist.md
+BREAKDOWN.md
+breakdown.md
+
+# System & IDE
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Antigravity IDE agent config
+.agents/

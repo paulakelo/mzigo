@@ -1,0 +1,52 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend", "simulator", "cdc", "analytics", "orchestration", "serving"]
+
+[project]
+name = "mzigo"
+version = "0.1.0"
+description = "Last-mile delivery platform with change data capture, Delta lakehouse, DuckDB, and Dagster ($0 stack)."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "fastapi>=0.111.0",
+    "uvicorn>=0.30.0",
+    "pydantic>=2.7.0",
+    "pydantic-settings>=2.3.0",
+    "sqlalchemy>=2.0.30",
+    "psycopg2-binary>=2.9.9",
+    "geoalchemy2>=0.15.0",
+    "shapely>=2.0.4",
+    "kafka-python-ng>=2.2.0",
+    "deltalake>=0.18.0",
+    "duckdb>=1.0.0",
+    "dagster>=1.7.0",
+    "dagster-webserver>=1.7.0",
+    "pandera[polars]>=0.20.0",
+    "polars>=1.0.0",
+    "pyarrow>=16.0.0",
+    "httpx>=0.27.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "ruff>=0.6.0",
+    "pre-commit>=3.7.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "B", "C4", "UP"]
+ignore = []
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

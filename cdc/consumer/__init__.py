@@ -1,0 +1,1 @@
+"""Mzigo CDC Consumer Package."""

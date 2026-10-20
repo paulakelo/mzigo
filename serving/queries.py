@@ -1,0 +1,1 @@
+"""Mzigo DuckDB Analytical Queries."""

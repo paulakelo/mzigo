@@ -136,7 +136,22 @@ Mzigo is hardened against operational and streaming failure modes. Full specific
 
 ---
 
-## 7. Quickstart & Local Setup
+## 7. Milestone Build Records
+
+Mzigo's incremental delivery plan is fully documented across 8 milestone build records in [`docs/milestones/`](docs/milestones/):
+
+- [Milestone 1: Postgres Schema, PostGIS Zones, FastAPI Write API & State Machine](docs/milestones/M1_POSTGRES_SCHEMA_WRITE_API_AND_ZONES.md)
+- [Milestone 2: Deterministic Simulator & Synthetic Delivery Fleet](docs/milestones/M2_DETERMINISTIC_SIMULATOR_AND_FLEET.md)
+- [Milestone 3: Debezium CDC, Kafka Streaming & Bronze Delta Changelog](docs/milestones/M3_DEBEZIUM_CDC_AND_BRONZE_CHANGELOG.md)
+- [Milestone 4: Silver Current-State with LSN-Guarded MERGE](docs/milestones/M4_SILVER_CURRENT_STATE_AND_LSN_MERGE.md)
+- [Milestone 5: Parity Verification Check, Rebuild Pipeline & Dynamic Schema Evolution](docs/milestones/M5_PARITY_CHECK_REBUILD_AND_SCHEMA_EVOLUTION.md)
+- [Milestone 6: Gold SQL Models, Data Contracts & Dagster Orchestration](docs/milestones/M6_GOLD_SQL_MODELS_AND_CONTRACTS.md)
+- [Milestone 7: Isolated Read API, Chaos Test Suite & CI Automation](docs/milestones/M7_READ_API_AND_CHAOS_SUITE.md)
+- [Milestone 8: Documentation, Showcase & Project Polish](docs/milestones/M8_CI_PIPELINE_AND_PROJECT_SHOWCASE.md)
+
+---
+
+## 8. Quickstart & Local Setup
 
 ### Prerequisites
 - Linux / macOS with Docker & Docker Compose
@@ -192,7 +207,7 @@ Mzigo is hardened against operational and streaming failure modes. Full specific
 
 ---
 
-## 8. Interview Talking Points
+## 9. Interview Talking Points
 
 - **Why CDC beats polling and nightly batch dumps**: Captures every intermediate status change, preserves delete before-images, incurs zero analytical query load on the operational database, and replicates in near real-time.
 - **LSN ordering ensures effectively-once semantics**: Because Kafka offers at-least-once delivery, guarding Delta Lake `MERGE` statements with monotonic Log Sequence Numbers guarantees that replayed or out-of-order packets can never overwrite newer state.

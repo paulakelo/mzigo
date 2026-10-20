@@ -47,6 +47,9 @@ target-version = "py311"
 select = ["E", "F", "I", "W", "B", "C4", "UP"]
 ignore = []
 
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["fastapi.Depends", "fastapi.Query", "fastapi.params.Depends"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]

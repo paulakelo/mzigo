@@ -13,9 +13,9 @@ services:
       POSTGRES_USER: mzigo_user
       POSTGRES_PASSWORD: mzigo_password
     ports:
-      - "5432:5432"
+      - "5434:5432"
     volumes:
-      - ./backend/db/seed_zones.sql:/docker-entrypoint-initdb.d/01_seed_zones.sql:ro
+      - ./backend/db/init.sql:/docker-entrypoint-initdb.d/01_init.sql:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U mzigo_user -d mzigo"]
       interval: 5s

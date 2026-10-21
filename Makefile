@@ -11,7 +11,7 @@ help:
 	@echo "  make setup     - Create virtual environment and install dependencies"
 	@echo "  make up        - Start Docker services (Postgres/PostGIS, Kafka, Debezium)"
 	@echo "  make down      - Stop Docker services"
-	@echo "  make backend   - Run FastAPI write API on port 8000"
+	@echo "  make backend   - Run FastAPI write API on port 8001"
 	@echo "  make serving   - Run FastAPI read serving API on port 8002"
 	@echo "  make cdc       - Run CDC consumer (stream Bronze & Silver Delta tables)"
 	@echo "  make demo      - Run full end-to-end simulated delivery lifecycle and CDC demo"
@@ -55,7 +55,7 @@ down:
 	docker compose down
 
 backend:
-	$(BIN)/uvicorn backend.app:app --host 0.0.0.0 --port 8000 --reload
+	$(BIN)/uvicorn backend.app:app --host 0.0.0.0 --port 8001 --reload
 
 serving:
 	$(BIN)/uvicorn serving.app:app --host 0.0.0.0 --port 8002 --reload

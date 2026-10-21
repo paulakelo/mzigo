@@ -1,9 +1,9 @@
 """Mzigo Virtual Accelerated Clock.
 
-Compresses a full 24-hour delivery schedule into minutes.
+Compresses a full 24-hour delivery schedule into minutes for deterministic simulation.
 """
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
 
 
 class VirtualClock:
@@ -15,9 +15,17 @@ class VirtualClock:
         self.speedup = speedup
 
     def advance_seconds(self, seconds: float):
-        self.current_time = self.current_time.fromtimestamp(
-            self.current_time.timestamp() + seconds, tz=UTC
-        )
+        """Advance virtual clock by a given number of seconds."""
+        self.current_time += timedelta(seconds=seconds)
+
+    def advance_minutes(self, minutes: float):
+        """Advance virtual clock by a given number of minutes."""
+        self.advance_seconds(minutes * 60.0)
 
     def now(self) -> datetime:
+        """Get current virtual time."""
         return self.current_time
+
+    def isoformat(self) -> str:
+        """Format current virtual time as ISO 8601 string."""
+        return self.current_time.isoformat()

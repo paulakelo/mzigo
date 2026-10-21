@@ -42,7 +42,6 @@ services:
       CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
     ports:
       - "29092:29092"
-      - "9092:9092"
 
   debezium:
     image: debezium/connect:2.6.1.Final

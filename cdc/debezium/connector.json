@@ -10,6 +10,8 @@
     "database.password": "mzigo_password",
     "database.dbname": "mzigo",
     "topic.prefix": "mzigo",
+    "publication.name": "mzigo_publication",
+    "slot.name": "mzigo_slot",
     "table.include.list": "public.zones,public.shops,public.customers,public.riders,public.deliveries,public.delivery_status_events,public.rider_locations",
     "tombstones.on.delete": "false",
     "decimal.handling.mode": "double",
